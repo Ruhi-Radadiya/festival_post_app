@@ -365,13 +365,13 @@ class _DetailPageState extends State<DetailPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton.icon(
-                          onPressed: () => saveToGallery(),
+                          onPressed: () => shareImage(),
                           icon: const Icon(Icons.share),
                           label: const Text("Share"),
                         ),
                         const SizedBox(width: 30),
                         ElevatedButton.icon(
-                          onPressed: () => shareImage(),
+                          onPressed: () => saveToGallery(),
                           icon: const Icon(Icons.save),
                           label: const Text("Save"),
                         ),
