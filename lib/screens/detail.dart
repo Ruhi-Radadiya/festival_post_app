@@ -384,6 +384,7 @@ class _DetailPageState extends State<DetailPage> {
           ],
         ),
       ),
+       backgroundColor: Colors.grey.shade300,
     );
   }
 }
