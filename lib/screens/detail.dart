@@ -119,7 +119,7 @@ class _DetailPageState extends State<DetailPage> {
         title: Text(
           fest.name,
           style: const TextStyle(
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         leading: IconButton(
