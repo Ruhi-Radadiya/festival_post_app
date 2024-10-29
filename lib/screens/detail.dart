@@ -113,7 +113,7 @@ class _DetailPageState extends State<DetailPage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.cyan.shade700,
+        backgroundColor: Color(0xffb4e6ff),
         elevation: 0,
         centerTitle: true,
         title: Text(
@@ -240,7 +240,7 @@ class _DetailPageState extends State<DetailPage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              "Choose Background Color:",
+                              "Choose Background Colour:",
                               style: TextStyle(fontSize: 15.sp),
                             ),
                             IconButton(
@@ -250,7 +250,7 @@ class _DetailPageState extends State<DetailPage> {
                                   builder: (context) {
                                     return AlertDialog(
                                       title: Text(
-                                        "Pick a color",
+                                        "Pick a Colour",
                                         style: TextStyle(fontSize: 16.sp),
                                       ),
                                       content: Column(
@@ -319,7 +319,7 @@ class _DetailPageState extends State<DetailPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Select Font Color:",
+                              "Select Font Colour:",
                               style: TextStyle(fontSize: 15.sp),
                             ),
                             IconButton(
@@ -329,7 +329,7 @@ class _DetailPageState extends State<DetailPage> {
                                   builder: (context) {
                                     return AlertDialog(
                                       title: Text(
-                                        "Pick a color",
+                                        "Pick a Colour",
                                         style: TextStyle(fontSize: 16.sp),
                                       ),
                                       content: Column(
@@ -384,6 +384,7 @@ class _DetailPageState extends State<DetailPage> {
           ],
         ),
       ),
+      backgroundColor: Colors.grey.shade300,
     );
   }
 }
