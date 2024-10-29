@@ -366,14 +366,14 @@ class _DetailPageState extends State<DetailPage> {
                       children: [
                         ElevatedButton.icon(
                           onPressed: () => saveToGallery(),
-                          icon: const Icon(Icons.save),
-                          label: const Text("Save Post"),
+                          icon: const Icon(Icons.share),
+                          label: const Text("Share"),
                         ),
                         const SizedBox(width: 30),
                         ElevatedButton.icon(
                           onPressed: () => shareImage(),
-                          icon: const Icon(Icons.share),
-                          label: const Text("Share Post"),
+                          icon: const Icon(Icons.save),
+                          label: const Text("Save"),
                         ),
                       ],
                     ),
