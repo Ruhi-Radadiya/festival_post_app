@@ -40,7 +40,7 @@ class DetailPageState extends State<DetailPage> {
   ];
 
   Color backgroundColor = Colors.white;
-  String font = "Australia";
+
   bool isImage = true;
   String? selectedImage;
   Color fontColour = Colors.black87;
@@ -169,7 +169,6 @@ class DetailPageState extends State<DetailPage> {
                             fontStyle: FontStyle.normal,
                             fontWeight: FontWeight.w500,
                             color: fontColour,
-                            fontFamily: font,
                           ),
                           textAlign: TextAlign.center,
                         ),
