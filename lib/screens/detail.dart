@@ -17,10 +17,10 @@ class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
 
   @override
-  State<DetailPage> createState() => _DetailPageState();
+  State<DetailPage> createState() => DetailPageState();
 }
 
-class _DetailPageState extends State<DetailPage> {
+class DetailPageState extends State<DetailPage> {
   List<String> images = [
     "https://i.pinimg.com/236x/40/93/bf/4093bf65f7af52c9cd5bee6fac2da898.jpg",
     "https://i.pinimg.com/236x/0c/1f/54/0c1f54821166f7a03be995132123bff5.jpg",
@@ -58,6 +58,29 @@ class _DetailPageState extends State<DetailPage> {
     });
   }
 
+  Future<void> shareImage() async {
+    try {
+      RenderRepaintBoundary boundary =
+          key.currentContext!.findRenderObject()! as RenderRepaintBoundary;
+      ui.Image image = await boundary.toImage(pixelRatio: 3.0);
+      ByteData? byteData =
+          await image.toByteData(format: ui.ImageByteFormat.png);
+      final buffer = byteData!.buffer.asUint8List();
+
+      final directory = await getTemporaryDirectory();
+      final file = await File('${directory.path}/post_image.png').create();
+      await file.writeAsBytes(buffer);
+
+      await ShareExtend.share(file.path, "image");
+    } catch (e) {
+      SnackBar snackBar = const SnackBar(
+        content: Text("Failed to share image"),
+        backgroundColor: Colors.red,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
+  }
+
   Future<void> saveToGallery() async {
     try {
       RenderRepaintBoundary boundary =
@@ -77,29 +100,6 @@ class _DetailPageState extends State<DetailPage> {
     } catch (e) {
       SnackBar snackBar = const SnackBar(
         content: Text("Failed to save image"),
-        backgroundColor: Colors.red,
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    }
-  }
-
-  Future<void> shareImage() async {
-    try {
-      RenderRepaintBoundary boundary =
-          key.currentContext!.findRenderObject()! as RenderRepaintBoundary;
-      ui.Image image = await boundary.toImage(pixelRatio: 3.0);
-      ByteData? byteData =
-          await image.toByteData(format: ui.ImageByteFormat.png);
-      final buffer = byteData!.buffer.asUint8List();
-
-      final directory = await getTemporaryDirectory();
-      final file = await File('${directory.path}/post_image.png').create();
-      await file.writeAsBytes(buffer);
-
-      await ShareExtend.share(file.path, "image");
-    } catch (e) {
-      SnackBar snackBar = const SnackBar(
-        content: Text("Failed to share image"),
         backgroundColor: Colors.red,
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -285,36 +285,36 @@ class _DetailPageState extends State<DetailPage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Select Font:",
-                          style: TextStyle(fontSize: 15.sp),
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: TextButton(
-                                  onPressed: () {
-                                    font = Fonts.values[0].name;
-                                    setState(() {});
-                                  },
-                                  child: Text(
-                                    "Aa",
-                                    style: TextStyle(
-                                      fontSize: 20.sp,
-                                      fontFamily: Fonts.values[0].name,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                        // Text(
+                        //   "Select Font:",
+                        //   style: TextStyle(fontSize: 15.sp),
+                        // ),
+                        // SizedBox(
+                        //   height: 10.h,
+                        // ),
+                        // Row(
+                        //   children: [
+                        //     CircleAvatar(
+                        //       child: Padding(
+                        //         padding: const EdgeInsets.all(8.0),
+                        //         child: TextButton(
+                        //           onPressed: () {
+                        //             font = Fonts.values[0].name;
+                        //             setState(() {});
+                        //           },
+                        //           child: Text(
+                        //             "Aa",
+                        //             style: TextStyle(
+                        //               fontSize: 20.sp,
+                        //               fontFamily: Fonts.values[0].name,
+                        //               color: Colors.black,
+                        //             ),
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
