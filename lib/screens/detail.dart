@@ -10,7 +10,6 @@ import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_extend/share_extend.dart';
 
-import '../components/fonts.dart';
 import '../models/model.dart';
 
 class DetailPage extends StatefulWidget {
